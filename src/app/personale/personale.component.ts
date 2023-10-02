@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonaleService } from './personaleService/personale.service';
+import { PersonaleService } from '../../Services/personale.service';
 import { Staff } from '../file ts/staff';
 import { identifierName } from '@angular/compiler';
 

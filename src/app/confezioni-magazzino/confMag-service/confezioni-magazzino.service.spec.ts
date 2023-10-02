@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ConfezioniMagazzinoService } from './confezioni-magazzino.service';
+import { ConfezioniMagazzinoService } from '../../../Services/confezioni-magazzino.service';
 
 describe('ConfezioniMagazzinoService', () => {
   let service: ConfezioniMagazzinoService;

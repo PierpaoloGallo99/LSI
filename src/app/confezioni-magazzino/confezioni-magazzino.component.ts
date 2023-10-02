@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BoxMagazzino } from '../file ts/box-magazzino';
-import { ProdottiMagazzinoService } from '../prodotti-magazzino/prodottiMagazzinoService/prodotti-magazzino.service';
+import { ProdottiMagazzinoService } from '../../Services/prodotti-magazzino.service';
 
 @Component({
   selector: 'app-confezioni-magazzino',

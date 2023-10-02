@@ -16,7 +16,7 @@ import { ProdottiVendutiComponent } from './SezioneProdotti/prodotti-venduti/pro
 import { ProdottiInEsposizioneComponent } from './SezioneProdotti/prodotti-in-esposizione/prodotti-in-esposizione.component';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent},
   {path: 'products', component: ProdComponent},
   {path: 'products/to-be-processed', component: ProdottiDaLavorareComponent},
@@ -29,7 +29,8 @@ const routes: Routes = [
   {path: 'cart', component: CarrelloComponent},
   {path: 'staff', component: PersonaleComponent},
   {path: 'orders', component: SpedizioniComponent},
-  {path: 'ricerca/:ricerca', component: ProdottiFornitoreComponent }
+  {path: 'ricerca/:ricerca', component: ProdottiFornitoreComponent},
+  {path: '', redirectTo:"/login", pathMatch: "full"}
 ];
 
 @NgModule({

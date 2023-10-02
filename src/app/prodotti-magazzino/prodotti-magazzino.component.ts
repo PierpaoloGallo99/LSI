@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProdottiMagazzinoService } from './prodottiMagazzinoService/prodotti-magazzino.service';
+import { ProdottiMagazzinoService } from '../../Services/prodotti-magazzino.service';
 import { ProdottiMagazzino } from '../file ts/prodotti-magazzino';
 
 @Component({
