@@ -20,7 +20,6 @@ import { ConfezioniMagazzinoComponent } from './confezioni-magazzino/confezioni-
 import { ProdottiDaLavorareComponent } from './SezioneProdotti/prodotti-da-lavorare/prodotti-da-lavorare.component';
 import { ProdottiVendutiComponent } from './SezioneProdotti/prodotti-venduti/prodotti-venduti.component';
 import { ProdottiInEsposizioneComponent } from './SezioneProdotti/prodotti-in-esposizione/prodotti-in-esposizione.component';
-import { SalarioComponent } from './personale/salario/salario.component'
 
 
 @NgModule({
@@ -41,7 +40,6 @@ import { SalarioComponent } from './personale/salario/salario.component'
     ProdottiDaLavorareComponent,
     ProdottiVendutiComponent,
     ProdottiInEsposizioneComponent,
-    SalarioComponent
   ],
   imports: [
     BrowserModule,
