@@ -1,0 +1,26 @@
+<body>
+    <app-search></app-search>
+
+    <div class="lista">
+        <div class="testo">
+            <h3>LISTA DELLE CONFEZIONI IN MAGAZZINO:</h3>
+            <table>
+                <tr>
+                    <th>Numero</th>
+                    <th>Nome</th>
+                    <th>Quantità</th>
+                    <th>Dimensione</th>
+                </tr>
+                <tr class="puntatore" *ngFor="let b of box">
+                    <th>{{b.id}}</th>
+                    <th>{{b.name}}</th>
+                    <th>{{b.quantity}}</th>
+                    <th *ngIf="b.dimension == 1">Piccola</th>
+                    <th *ngIf="b.dimension == 2">Media</th>
+                    <th *ngIf="b.dimension == 3">Grande</th>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</body>

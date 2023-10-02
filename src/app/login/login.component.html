@@ -1,0 +1,19 @@
+<body>
+    <div class="riquadro">
+        <div class="login">
+            <h1>Login</h1>
+            <div class="form">
+                <form>
+                    <p>Email</p>
+                    <input type="email">
+                    <br>
+                    <p>Password</p>
+                    <input [type]="show ? 'text':'password'" id="password" name="password" >
+                    <p>Mostra Password<input type="checkbox" (click)="showPassword()"></p>
+                    <input type="submit">
+                </form>
+                <br>
+            </div>
+        </div>
+    </div>
+</body>

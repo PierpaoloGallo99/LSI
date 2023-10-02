@@ -1,0 +1,31 @@
+<body>
+
+    <app-search></app-search>
+
+    <div class="lista">
+        <div class="testo">
+            <h3>LISTA DEI PRODOTTI IN MAGAZZINO:</h3>
+            <table>
+                <tr>
+                    <th>Numero</th>
+                    <th>Nome</th>
+                    <th>Codice a Barre</th>
+                    <th>Descrizione</th>
+                    <th>Quantità</th>
+                </tr>
+                <tr class="puntatore" *ngFor="let p of prodotti">
+                    <th>{{p.id}}</th>
+                    <th>{{p.name}}</th>
+                    <th>{{p.barCode}}</th>
+                    <th>{{p.description}}</th>
+                    <th>{{p.quantity}}</th>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <br>
+
+    
+</body>
