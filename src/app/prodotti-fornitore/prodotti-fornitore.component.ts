@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SearchService } from '../search/searchService/search.service';
+import { SearchService } from '../../Services/search.service';
 import { Fornitore } from '../supplier/fornitori';
 
 @Component({
@@ -26,7 +26,7 @@ export class ProdottiFornitoreComponent implements OnInit {
         this.prodotti = data;
       });
     });
-    
+
   }
 
 }

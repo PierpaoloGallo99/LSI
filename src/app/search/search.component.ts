@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SearchService } from './searchService/search.service';
+import { SearchService } from '../../Services/search.service';
 import { Prodotto } from '../file ts/prodotti';
 
 @Component({
@@ -16,7 +16,7 @@ export class SearchComponent implements OnInit {
 
   componentName:string | undefined;
 
-  constructor(private route: ActivatedRoute, private search: SearchService) { 
+  constructor(private route: ActivatedRoute, private search: SearchService) {
     this.componentName = route.snapshot.component?.name;
   }
 
@@ -24,15 +24,15 @@ export class SearchComponent implements OnInit {
   }
 
   onSearch() {
-    
-    
+
+
     if(this.ricerca==''){
       return
     }
     this.search.getFornitori(this.ricerca).subscribe(data => {
       this.fornitori = data;
     });
-    
+
   }
 
 }
