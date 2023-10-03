@@ -3,14 +3,14 @@
         <div class="login">
             <h1>Login</h1>
             <div class="form">
-                <form>
+                <form #myForm="ngForm">
                     <p>Email</p>
-                    <input type="email">
+                    <input type="email" name="email" ngModel>
                     <br>
                     <p>Password</p>
-                    <input [type]="show ? 'text':'password'" id="password" name="password" >
+                    <input [type]="show ? 'text':'password'" id="password" name="password" ngModel>
                     <p>Mostra Password<input type="checkbox" (click)="showPassword()"></p>
-                    <input type="submit">
+                    <input type="submit" (click)="getValueForm(myForm.value)">
                 </form>
                 <br>
             </div>

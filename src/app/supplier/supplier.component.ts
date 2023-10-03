@@ -30,6 +30,6 @@ export class SupplierComponent implements OnInit {
   //quando clicco su un fornitore vengo rimandato a una pagina che mi prende il fornitore
   //e mi mostra tutti i suoi prodotti
   cercaFornitore(f: Fornitore){
-    this.router.navigate(['/ricerca', f.id]);
+    this.router.navigate(['/products_of_supplier', f.id]);
   }
 }

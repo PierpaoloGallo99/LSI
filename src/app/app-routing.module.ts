@@ -29,7 +29,7 @@ const routes: Routes = [
   {path: 'cart', component: CarrelloComponent},
   {path: 'staff', component: PersonaleComponent},
   {path: 'orders', component: SpedizioniComponent},
-  {path: 'ricerca/:ricerca', component: ProdottiFornitoreComponent},
+  {path: 'products_of_supplier/:ricerca', component: ProdottiFornitoreComponent},
   {path: '', redirectTo:"/login", pathMatch: "full"}
 ];
 
