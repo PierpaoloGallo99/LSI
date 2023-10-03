@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginService} from "../../Services/login.service";
 import {AuthService} from "../../Services/auth.service";
-import {Router} from "@angular/router";
+import {CanActivate, Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, CanActivate  {
   password=''
   show=false;
 
@@ -41,6 +41,17 @@ export class LoginComponent implements OnInit {
       this.utente= this.loginService.login(list).subscribe();
       this.authService.setAuth();
       this.router.navigate(["/home"]);
+    }
+  }
+
+  canActivate(): boolean {
+    // Controlla se l'utente è autenticato
+    if (this.authService.getAuthentication()) {
+      // L'utente è autenticato, quindi consenti la navigazione
+      return true;
+    } else {
+      // L'utente non è autenticato, quindi nega la navigazione
+      return false;
     }
   }
 

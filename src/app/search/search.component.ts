@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { SearchService } from '../../Services/search.service';
 import { Prodotto } from '../file ts/prodotti';
+import {AuthService} from "../../Services/auth.service";
 
 @Component({
   selector: 'app-search',
@@ -16,7 +17,7 @@ export class SearchComponent implements OnInit {
 
   componentName:string | undefined;
 
-  constructor(private route: ActivatedRoute, private search: SearchService) {
+  constructor(private route: ActivatedRoute, private search: SearchService, private authService: AuthService) {
     this.componentName = route.snapshot.component?.name;
   }
 
@@ -33,6 +34,11 @@ export class SearchComponent implements OnInit {
       this.fornitori = data;
     });
 
+  }
+
+  logout(){
+    this.authService.setAuth();
+    localStorage.clear();
   }
 
 }

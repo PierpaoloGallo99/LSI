@@ -12,8 +12,15 @@ export class AuthService {
 
   setAuth(){
     this.isAuthenticated= !this.isAuthenticated;
+    localStorage.setItem('isAuthenticated', this.isAuthenticated.toString());
   }
 
-  getAuthentication(){ return this.isAuthenticated;}
-
+  getAuthentication(){
+    const isAuthenticated = localStorage.getItem('isAuthenticated');
+    if (isAuthenticated) {
+      return isAuthenticated === 'true';
+    } else {
+      return false;
+    }
+  }
 }
