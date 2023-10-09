@@ -8,7 +8,7 @@ import {CanActivate, Router} from "@angular/router";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit, CanActivate  {
+export class LoginComponent implements OnInit  {
   password=''
   show=false;
 
@@ -19,7 +19,8 @@ export class LoginComponent implements OnInit, CanActivate  {
     password:''
 }
 
-  constructor(private router:Router, private loginService: LoginService, private authService:AuthService) { }
+  constructor(private router:Router, private loginService: LoginService, private authService:AuthService) {
+  }
 
   ngOnInit(): void {
     if(this.authService.getAuthentication())
@@ -38,20 +39,14 @@ export class LoginComponent implements OnInit, CanActivate  {
     else{
       list[0]=formData.email;
       list[1]=formData.password;
-      this.utente= this.loginService.login(list).subscribe();
-      this.authService.setAuth();
-      this.router.navigate(["/home"]);
-    }
-  }
-
-  canActivate(): boolean {
-    // Controlla se l'utente è autenticato
-    if (this.authService.getAuthentication()) {
-      // L'utente è autenticato, quindi consenti la navigazione
-      return true;
-    } else {
-      // L'utente non è autenticato, quindi nega la navigazione
-      return false;
+      this.utente= this.loginService.login(list).subscribe((response) => {
+        this.loginService.utente=response;
+        this.authService.setAuthentication();
+        this.router.navigate(["/home"]);
+      },
+        (error) => {
+        console.log(error);
+        });
     }
   }
 

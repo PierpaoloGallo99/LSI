@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { PersonaleService } from '../../Services/personale.service';
-import { Staff } from '../file ts/staff';
-import { identifierName } from '@angular/compiler';
+import {Component, OnInit} from '@angular/core';
+import {PersonaleService} from '../../Services/personale.service';
+import {Staff} from '../file ts/staff';
+import {identifierName} from '@angular/compiler';
+import {Password} from "../file ts/password";
 
 @Component({
   selector: 'app-personale',
@@ -10,14 +11,17 @@ import { identifierName } from '@angular/compiler';
 })
 export class PersonaleComponent implements OnInit {
 
-  constructor(private staffServ: PersonaleService) { }
+  constructor(private staffServ: PersonaleService) {
+  }
 
+  password = new Password();
 
   myForm = {
     firstName: '',
     lastName: '',
     telephoneNumber: '',
     email: '',
+    password: '',
     idSalary: 0
   }
 
@@ -36,31 +40,24 @@ export class PersonaleComponent implements OnInit {
   }
 
   getValueForm(formData: any) {
-    let max = 0;
-    for (let s of this.lista) {
-      if (s.id >= max) {
-        max = s.id;
-      }
-    }
-
-
-    this.utente.firstName = formData.nome;
-    this.utente.lastName = formData.cognome;
-    this.utente.telephoneNumber = formData.telefono;
-    this.utente.email = formData.email;
-    this.utente.idSalary = formData.id;
-    this.utente.code = "00";
-    this.utente.password = "";
-
-    console.log(this.utente);
-
-    this.staffServ.registerUser(this.utente).subscribe();
-    location.reload();
+    const list: any[] = [];
+    list[0] = formData.nome;
+    list[1] = formData.cognome;
+    list[2] = formData.telefono;
+    list[3] = formData.email;
+    list[4] = formData.id;
+    list[5] = "00";
+    list[6] = formData.password;
+    this.staffServ.registerUser(list).subscribe((response) => {
+      location.reload();
+    });
   }
 
-  deleteUser(s: any){
+  deleteUser(s: any) {
     this.staffServ.deleteUser(s.id);
+    this.staffServ.deletePasswordUser(s.id);
     location.reload();
   }
+
 
 }

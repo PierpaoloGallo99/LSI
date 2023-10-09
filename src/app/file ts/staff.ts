@@ -1,11 +1,10 @@
 export class Staff{
     id?: number;
-    code?: String;
-    firstName?: String;
-    lastName?: String;
-    telephoneNumber?: String;
-    email?: number;
-    password?: string;
+    code?: string;
+    firstName?: string;
+    lastName?: string;
+    telephoneNumber?: string;
+    email?: string;
     idSalary?: number;
     constructor(){}
 }

@@ -10,6 +10,8 @@ import {AuthService} from "./auth.service";
 })
 export class LoginService {
 
+  utente: any;
+
   private userURL = 'http://localhost:8080/users';
 
   constructor(private http: HttpClient, private authService: AuthService) {

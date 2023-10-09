@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private isAuthenticated;
 
-  constructor(private http: HttpClient) {}
+  constructor() {
+    this.isAuthenticated=false;
+  }
+  private idUser: number | undefined;
 
-  private isAuthenticated : boolean=false;
-
-  setAuth(){
+  setAuthentication(){
     this.isAuthenticated= !this.isAuthenticated;
     localStorage.setItem('isAuthenticated', this.isAuthenticated.toString());
   }
@@ -23,4 +26,5 @@ export class AuthService {
       return false;
     }
   }
+
 }
