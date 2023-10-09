@@ -1,21 +1,29 @@
-import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {Injectable} from '@angular/core';
+import {UserPack} from "../app/model/userPack";
+import {Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private isAuthenticated = false;
+  public isAuthencticatedSubject = new Subject<any>();
 
-  constructor(private http: HttpClient) {}
-
-  private isAuthenticated : boolean=false;
-
-  setAuth(){
-    this.isAuthenticated= !this.isAuthenticated;
-    localStorage.setItem('isAuthenticated', this.isAuthenticated.toString());
+  public setAuth(pack: UserPack): void {
+    if (pack) {
+      this.isAuthencticatedSubject.next(pack);
+      this.isAuthenticated = true;
+      localStorage.setItem('pack', JSON.stringify(pack));
+      localStorage.setItem('isAuthenticated', this.isAuthenticated.toString());
+    }
   }
 
-  getAuthentication(){
+  public setAuthenticationBool(value: boolean) {
+    this.isAuthenticated = value;
+    localStorage.clear();
+  }
+
+  getAuthentication() {
     const isAuthenticated = localStorage.getItem('isAuthenticated');
     if (isAuthenticated) {
       return isAuthenticated === 'true';

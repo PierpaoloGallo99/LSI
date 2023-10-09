@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {LoginService} from "../../Services/login.service";
 import {AuthService} from "../../Services/auth.service";
 import {CanActivate, Router} from "@angular/router";
+import {UserPack} from "../model/userPack";
 
 @Component({
   selector: 'app-login',
@@ -14,10 +15,6 @@ export class LoginComponent implements OnInit, CanActivate  {
 
   utente: any;
 
-  myForm = {
-    email:'',
-    password:''
-}
 
   constructor(private router:Router, private loginService: LoginService, private authService:AuthService) { }
 
@@ -36,10 +33,11 @@ export class LoginComponent implements OnInit, CanActivate  {
       console.error("ERRORE_SPAZI_VUOTI");
     }
     else{
+      let userPack = new UserPack(formData.email, formData.password);
       list[0]=formData.email;
       list[1]=formData.password;
       this.utente= this.loginService.login(list).subscribe();
-      this.authService.setAuth();
+      this.authService.setAuth(userPack);
       this.router.navigate(["/home"]);
     }
   }

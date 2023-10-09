@@ -1,0 +1,18 @@
+<div class="dashboard row">
+  <button mat-raised-button color="primary" *ngIf="authS.getAuthentication()" (click)="onHome()" type="button"
+          class="norm_button">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon> HOME PAGE
+  </button>
+  <!--  <button *ngIf="authS.getAuthentication()" (click)="onMagazzino()" type="button" class="btn btn-primary col db-button logged-style">Magazzino</button>-->
+  <!--  <button *ngIf="authS.getAuthentication()" (click)="onOrdiniSpediti()" type="button" class="btn btn-primary col db-button logged-style">Ordini spediti</button>-->
+  <!--  <button *ngIf="authS.getAuthentication()" (click)="onPersonale()" type="button" class="btn btn-primary col db-button logged-style">Personale</button>-->
+  <!--  <button *ngIf="authS.getAuthentication()" (click)="onOrdini()" type="button" class="btn btn-primary col db-button logged-style">Ordini</button>-->
+  <!--  <button *ngIf="authS.getAuthentication()" (click)="onFornitori()" type="button" class="btn btn-primary col db-button logged-style">Fornitori</button>-->
+  <!--  <button *ngIf="authS.getAuthentication()" (click)="onProdotti()" type="button" class="btn btn-primary col db-button logged-style">Prodotti</button>-->
+  <button mat-raised-button color="warn" *ngIf="authS.getAuthentication()" (click)="onLogOut()" type="button"
+          class="logout-style">Log Out
+  </button>
+  <button mat-raised-button color="Accent" *ngIf="!authS.getAuthentication()" (click)="onLogin()" type="button"
+          class="logout-style">Login
+  </button>
+</div>

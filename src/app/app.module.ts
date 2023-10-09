@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule} from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +20,9 @@ import { ConfezioniMagazzinoComponent } from './confezioni-magazzino/confezioni-
 import { ProdottiDaLavorareComponent } from './SezioneProdotti/prodotti-da-lavorare/prodotti-da-lavorare.component';
 import { ProdottiVendutiComponent } from './SezioneProdotti/prodotti-venduti/prodotti-venduti.component';
 import { ProdottiInEsposizioneComponent } from './SezioneProdotti/prodotti-in-esposizione/prodotti-in-esposizione.component';
+import {DashboardComponent} from "./dashboard/dashboard.component";
+import {MatIconModule} from "@angular/material/icon";
+import {MatInputModule} from "@angular/material/input";
 
 
 @NgModule({
@@ -40,12 +43,15 @@ import { ProdottiInEsposizioneComponent } from './SezioneProdotti/prodotti-in-es
     ProdottiDaLavorareComponent,
     ProdottiVendutiComponent,
     ProdottiInEsposizioneComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatIconModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

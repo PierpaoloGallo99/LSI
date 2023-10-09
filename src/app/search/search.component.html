@@ -1,120 +1,78 @@
 <body>
-  <div class="barra">
-    <div class="icon" *ngIf="componentName=='MagazzinoComponent' || componentName=='ProdottiMagazzinoComponent' || componentName=='ConfezioniMagazzinoComponent'">
-      <div class="distanziatore">
-        <a routerLink="/home"><img src="https://drive.google.com/thumbnail?id=1UoMQaabDjHLD40_-egcQacZSqK4PO_23"></a>
-        <p>Home</p>
-      </div>
-
-      <div class="distanziatore">
-        <a routerLink="/warehouse/products"><img
-            src="https://drive.google.com/thumbnail?id=1kfLrPGFybkKXScRqVUyLMnoVu_W9X4UA"></a>
-        <p>Prodotti in Magazzino</p>
-      </div>
-
-      <div class="distanziatore">
-        <a routerLink="/warehouse/boxs"><img src="https://drive.google.com/thumbnail?id=1SvU3wECwlMfE6qbNJFHHbruCWv3UQ-56"></a>
-        <p>Confezioni in Magazzino</p>
-      </div>
-
-      <div class="distanziatore">
-        <a (click)="logout()" routerLink="/login"><img src="https://drive.google.com/thumbnail?id=1y9Ivp-9eYtatafOY5VfhSj51eQmMX5yQ"></a>
-        <p>Logout</p>
-      </div>
-
+<div class="barra">
+  <div class="icon"
+       *ngIf="componentName=='MagazzinoComponent' || componentName=='ProdottiMagazzinoComponent' || componentName=='ConfezioniMagazzinoComponent'">
+    <div class="distanziatore">
+      <a routerLink="/warehouse/products"><img
+        src="https://drive.google.com/thumbnail?id=1kfLrPGFybkKXScRqVUyLMnoVu_W9X4UA"></a>
+      <p>Prodotti in Magazzino</p>
     </div>
 
-    <div class="icon" *ngIf="componentName=='SpedizioniComponent' || componentName=='CarrelloComponent'">
-      <div class="distanziatore">
-        <a routerLink="/home"><img src="https://drive.google.com/thumbnail?id=1UoMQaabDjHLD40_-egcQacZSqK4PO_23"></a>
-        <p>Home</p>
-      </div>
-
-      <div class="distanziatore">
-        <a routerLink="/orders"><img src="https://drive.google.com/thumbnail?id=1-vgibyrvTWY6mQgxuoYf4kyoGVx2OHnn"></a>
-        <P>Ordini Spediti</P>
-      </div>
-
-      <div class="distanziatore">
-        <a routerLink="/cart"><img src="https://drive.google.com/thumbnail?id=1poPRJhB1NeDZ3smxi7queEB8sP1Suth6"></a>
-        <P>Ordini</P>
-      </div>
-
-      <div class="distanziatore">
-        <a (click)="logout()" routerLink="/login"><img src="https://drive.google.com/thumbnail?id=1y9Ivp-9eYtatafOY5VfhSj51eQmMX5yQ"></a>
-        <p>Logout</p>
-      </div>
+    <div class="distanziatore">
+      <a routerLink="/warehouse/boxs"><img
+        src="https://drive.google.com/thumbnail?id=1SvU3wECwlMfE6qbNJFHHbruCWv3UQ-56"></a>
+      <p>Confezioni in Magazzino</p>
     </div>
 
+  </div>
 
-    <div class="icon" *ngIf="componentName=='SupplierComponent' || componentName=='ProdottiFornitoreComponent'">
-      <div class="distanziatore">
-        <a routerLink="/home"><img src="https://drive.google.com/thumbnail?id=1UoMQaabDjHLD40_-egcQacZSqK4PO_23"></a>
-        <p>Home</p>
-      </div>
+  <div class="icon" *ngIf="componentName=='SpedizioniComponent' || componentName=='CarrelloComponent'">
 
-      <div class="distanziatore">
-        <a (click)="logout()" routerLink="/login"><img src="https://drive.google.com/thumbnail?id=1y9Ivp-9eYtatafOY5VfhSj51eQmMX5yQ"></a>
-        <p>Logout</p>
-      </div>
+
+    <div class="distanziatore">
+      <a routerLink="/orders"><img src="https://drive.google.com/thumbnail?id=1-vgibyrvTWY6mQgxuoYf4kyoGVx2OHnn"></a>
+      <P>Ordini Spediti</P>
     </div>
 
-    <div class="icon" *ngIf="componentName=='PersonaleComponent'">
-      <div class="distanziatore">
-        <a routerLink="/home"><img src="https://drive.google.com/thumbnail?id=1UoMQaabDjHLD40_-egcQacZSqK4PO_23"></a>
-        <p>Home</p>
-      </div>
-
-      <div class="distanziatore">
-        <a (click)="logout()" routerLink="/login"><img src="https://drive.google.com/thumbnail?id=1y9Ivp-9eYtatafOY5VfhSj51eQmMX5yQ"></a>
-        <p>Logout</p>
-      </div>
+    <div class="distanziatore">
+      <a routerLink="/cart"><img src="https://drive.google.com/thumbnail?id=1poPRJhB1NeDZ3smxi7queEB8sP1Suth6"></a>
+      <P>Ordini</P>
     </div>
 
-    <div class="icon" *ngIf="componentName=='ProdComponent' || componentName=='ProdottiDaLavorareComponent' || componentName=='ProdottiVendutiComponent' || componentName=='ProdottiInEsposizioneComponent'">
-      <div class="distanziatore">
-        <a routerLink="/home"><img src="https://drive.google.com/thumbnail?id=1UoMQaabDjHLD40_-egcQacZSqK4PO_23"></a>
-        <p>Home</p>
-      </div>
-
-
-      <div class="distanziatore">
-        <a routerLink="/products/show"><img src="https://drive.google.com/thumbnail?id=16OnxH5joUH166GLWYb8kk5myPzJY0dT-"></a>
-        <p>Prodotti in Esposizione</p>
-      </div>
-
-      <div class="distanziatore">
-        <a routerLink="/products/to-be-processed"><img src="https://drive.google.com/thumbnail?id=1DTb822XNOEjgj37fi2p36vxj8kU_fbzk"></a>
-        <p>Prodotti da Lavorare</p>
-      </div>
-
-      <div class="distanziatore">
-        <a routerLink="/products/sold"><img src="https://drive.google.com/thumbnail?id=1NSpkJW7fue1kFO4R-VKU1MOr8uvppIIs"></a>
-        <p>Prodotti Venduti</p>
-      </div>
-
-      <div class="distanziatore">
-        <a (click)="logout()" routerLink="/login"><img src="https://drive.google.com/thumbnail?id=1y9Ivp-9eYtatafOY5VfhSj51eQmMX5yQ"></a>
-        <p>Logout</p>
-      </div>
-    </div>
-
-
-
-
-    <!--
-    <div class="riquadro">
-      <div class="navBar">
-        <form class="example">
-          <input type="text" placeholder="Cerca.." name="ricerca" [(ngModel)]="ricerca">
-          <input type="submit" class="search-button" (click)="onSearch()">
-        </form>
-      </div>
-    </div>
-    -->
   </div>
 
 
+  <div class="icon" *ngIf="componentName=='SupplierComponent' || componentName=='ProdottiFornitoreComponent'">
+
+  </div>
+
+  <div class="icon" *ngIf="componentName=='PersonaleComponent'">
+
+  </div>
+
+  <div class="icon"
+       *ngIf="componentName=='ProdComponent' || componentName=='ProdottiDaLavorareComponent' || componentName=='ProdottiVendutiComponent' || componentName=='ProdottiInEsposizioneComponent'">
+
+    <div class="distanziatore">
+      <a routerLink="/products/show"><img src="https://drive.google.com/thumbnail?id=16OnxH5joUH166GLWYb8kk5myPzJY0dT-"></a>
+      <p>Prodotti in Esposizione</p>
+    </div>
+
+    <div class="distanziatore">
+      <a routerLink="/products/to-be-processed"><img
+        src="https://drive.google.com/thumbnail?id=1DTb822XNOEjgj37fi2p36vxj8kU_fbzk"></a>
+      <p>Prodotti da Lavorare</p>
+    </div>
+
+    <div class="distanziatore">
+      <a routerLink="/products/sold"><img src="https://drive.google.com/thumbnail?id=1NSpkJW7fue1kFO4R-VKU1MOr8uvppIIs"></a>
+      <p>Prodotti Venduti</p>
+    </div>
+
+  </div>
+
+
+  <!--
+  <div class="riquadro">
+    <div class="navBar">
+      <form class="example">
+        <input type="text" placeholder="Cerca.." name="ricerca" [(ngModel)]="ricerca">
+        <input type="submit" class="search-button" (click)="onSearch()">
+      </form>
+    </div>
+  </div>
+  -->
+</div>
 
 
 </body>

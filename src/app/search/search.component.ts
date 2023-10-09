@@ -37,7 +37,7 @@ export class SearchComponent implements OnInit {
   }
 
   logout(){
-    this.authService.setAuth();
+    this.authService.setAuthenticationBool(false);
     localStorage.clear();
   }
 
