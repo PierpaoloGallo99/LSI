@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Fornitore } from './fornitori';
 import { HttpClient } from '@angular/common/http';
-import { SupplierService } from '../../Services/supplier.service';
+import { SupplierService } from '../../Services/gate/supplier.service';
 import { Router } from '@angular/router';
 
 

@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+.logger-button-style{
+  background-color: #0d2ed2;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.button-style{
+  background-color: #3943ed;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.img-to-icon{
+  height: 40px;
+}
+
+.background{
+  background-color: #d7f2f5;
+}
+
+.lista {
+  display: grid;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.testo {
+  padding: 15px;
+  text-align: center;
+  display:grid;
+  border-radius: 10%;
+}
+

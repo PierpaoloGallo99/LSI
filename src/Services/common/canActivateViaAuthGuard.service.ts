@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {AuthService} from "../auth.service";
+import {AuthService} from "../gate/auth.service";
 import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from "@angular/router";
 import {ROUTING_PATH_COSTANTS} from "../costants/app.path-constants";
 

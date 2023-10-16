@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SearchService } from '../../Services/search.service';
+import { SearchService } from '../../Services/gate/search.service';
 import { Fornitore } from '../supplier/fornitori';
 
 @Component({

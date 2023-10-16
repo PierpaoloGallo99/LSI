@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonaleService } from '../../Services/personale.service';
+import { PersonaleService } from '../../Services/gate/personale.service';
 import { Staff } from '../file ts/staff';
 import { identifierName } from '@angular/compiler';
 
@@ -30,7 +30,7 @@ export class PersonaleComponent implements OnInit {
   }
 
   getStaff() {
-    this.staffServ.getPersonale().subscribe(data => {
+    this.staffServ.getPersonale().subscribe((data: any[]) => {
       this.lista = data;
     })
   }

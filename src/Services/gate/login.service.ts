@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Staff} from "../app/file ts/staff";
+import {Staff} from "../../app/file ts/staff";
 import {AuthService} from "./auth.service";
 
 

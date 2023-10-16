@@ -22,7 +22,8 @@
     "bootstrap": "^4.4.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "@angular/material/icon": "^14.2.7"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.5",

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
-import {UserPack} from "../app/model/userPack";
+import {UserPack} from "../../app/model/userPack";
 import {Subject} from "rxjs";
+import {Staff} from "../../app/file ts/staff";
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,9 @@ import {Subject} from "rxjs";
 export class AuthService {
   private isAuthenticated = false;
   public isAuthencticatedSubject = new Subject<any>();
+  utente: any;
 
-  public setAuth(pack: UserPack): void {
+  public setAuthentication(pack: UserPack): void {
     if (pack) {
       this.isAuthencticatedSubject.next(pack);
       this.isAuthenticated = true;

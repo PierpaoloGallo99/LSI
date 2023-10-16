@@ -31,7 +31,7 @@ const routes: Routes = [
   {path: ROUTING_PATH_COSTANTS.CARRELLO, component: CarrelloComponent, canActivate: [CanActivateViaAuthGuardService]},
   {path: ROUTING_PATH_COSTANTS.PERSONALE, component: PersonaleComponent, canActivate: [CanActivateViaAuthGuardService]},
   {path: ROUTING_PATH_COSTANTS.ORDINI, component: SpedizioniComponent, canActivate: [CanActivateViaAuthGuardService]},
-  {path: 'products_of_supplier/:ricerca', component: ProdottiFornitoreComponent, canActivate: [CanActivateViaAuthGuardService]},
+  {path: 'products_of_supplier/:ricerca', component: ProdottiFornitoreComponent, canActivate: [CanActivateViaAuthGuardService],},
   {path: '', redirectTo:ROUTING_PATH_COSTANTS.LOGIN, pathMatch: "full"}
 ];
 

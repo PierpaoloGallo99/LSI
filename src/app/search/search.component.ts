@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import { SearchService } from '../../Services/search.service';
+import { SearchService } from '../../Services/gate/search.service';
 import { Prodotto } from '../file ts/prodotti';
-import {AuthService} from "../../Services/auth.service";
+import {AuthService} from "../../Services/gate/auth.service";
 
 @Component({
   selector: 'app-search',
@@ -25,8 +25,6 @@ export class SearchComponent implements OnInit {
   }
 
   onSearch() {
-
-
     if(this.ricerca==''){
       return
     }
