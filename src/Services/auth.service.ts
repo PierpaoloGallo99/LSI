@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
+import { Staff } from 'src/app/file ts/staff';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,9 @@ export class AuthService {
   constructor() {
     this.isAuthenticated=false;
   }
+
+  public utente : Staff | undefined;
+
   private idUser: number | undefined;
 
   setAuthentication(){
@@ -25,6 +29,10 @@ export class AuthService {
     } else {
       return false;
     }
+  }
+
+  getRole(){
+    return Number(this.utente?.code);
   }
 
 }

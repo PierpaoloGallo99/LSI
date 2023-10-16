@@ -3,6 +3,7 @@ import {PersonaleService} from '../../Services/personale.service';
 import {Staff} from '../file ts/staff';
 import {identifierName} from '@angular/compiler';
 import {Password} from "../file ts/password";
+import { AuthService } from 'src/Services/auth.service';
 
 @Component({
   selector: 'app-personale',
@@ -11,7 +12,10 @@ import {Password} from "../file ts/password";
 })
 export class PersonaleComponent implements OnInit {
 
-  constructor(private staffServ: PersonaleService) {
+  loggedUser: number=0;
+
+  constructor(private staffServ: PersonaleService, private authServ: AuthService) {
+    this.loggedUser= this.authServ.getRole();
   }
 
   password = new Password();

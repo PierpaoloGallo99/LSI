@@ -40,7 +40,8 @@ export class LoginComponent implements OnInit  {
       list[0]=formData.email;
       list[1]=formData.password;
       this.utente= this.loginService.login(list).subscribe((response) => {
-        this.loginService.utente=response;
+        this.authService.utente=response;
+        console.log( this.authService.utente)
         this.authService.setAuthentication();
         this.router.navigate(["/home"]);
       },
