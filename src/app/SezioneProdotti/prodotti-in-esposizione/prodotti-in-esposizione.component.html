@@ -1,3 +1,46 @@
 <body>
     <app-search></app-search>
-</body>>
+
+    <div class="lista">
+        <div class="testo">
+            <h3>LISTA DEI PRODOTTI ESPOSTI:</h3>
+            <table>
+                <tr>
+                    <th>Numero</th>
+                    <th>Nome</th>
+                    <th>Codice a Barre</th>
+                    <th>Prezzo</th>
+                    <th>Quantità</th>
+                    <th></th>
+                </tr>
+                <tr class="puntatore" *ngFor="let p of lista">
+                    <th *ngIf="p.flag==1">{{p.id}}</th>
+                    <th *ngIf="p.flag==1">{{p.name}}</th>
+                    <th *ngIf="p.flag==1">{{p.barCode}}</th>
+                    <th *ngIf="p.flag==1">{{p.price}}</th>
+                    <th *ngIf="p.flag==1">{{p.quantity}}</th>
+                    <th *ngIf="p.flag==1"><button type="submit"  (click)="setFlagProduct(p)">Rimuovi Esposizione</button></th>
+                </tr>
+            </table>
+            <h3>LISTA DEI PRODOTTI NON ESPOSTI:</h3>
+            <table>
+                <tr>
+                    <th>Numero</th>
+                    <th>Nome</th>
+                    <th>Codice a Barre</th>
+                    <th>Prezzo</th>
+                    <th>Quantità</th>
+                    <th></th>
+                </tr>
+                <tr class="puntatore" *ngFor="let p of lista">
+                    <th *ngIf="p.flag==0">{{p.id}}</th>
+                    <th *ngIf="p.flag==0">{{p.name}}</th>
+                    <th *ngIf="p.flag==0">{{p.barCode}}</th>
+                    <th *ngIf="p.flag==0">{{p.price}}</th>
+                    <th *ngIf="p.flag==0">{{p.quantity}}</th>
+                    <th *ngIf="p.flag==0"><button type="submit"  (click)="setFlagProduct(p)">Esponi</button></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>

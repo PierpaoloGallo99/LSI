@@ -1,3 +1,90 @@
 <body>
-    <app-search></app-search>
-</body>>
+  <app-search></app-search>
+
+  <div class="lista">
+    <div class="testo">
+      <h3>LISTA DEI PRODOTTI DA LAVORARE:</h3>
+      <table>
+        <tr>
+          <th>Numero</th>
+          <th>Nome</th>
+          <th>Codice a Barre</th>
+          <th>Prezzo</th>
+          <th>Quantità</th>
+          <th>Materiale</th>
+          <th>Quantità Materiale (grammi)</th>
+        </tr>
+        <tr class="puntatore" *ngFor="let p of lista">
+          <th>{{p.id}}</th>
+          <th>{{p.name}}</th>
+          <th>{{p.barCode}}</th>
+          <th>{{p.price}}</th>
+          <th>{{p.quantity}}</th>
+          <th>{{p.idMaterial}}</th>
+          <th>{{p.quantityMaterial}}</th>
+          <button type="submit" (click)="registraProdotti(p)">Registra Nuovi Prodotti</button>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+
+  <hr style="width: 80%; align-items: center;">
+
+  <!-- form per aggiungere un prodotto-->
+  <div class="riquadro">
+    <div class="testo">
+      <h1>Aggiungi un prodotto da creare</h1>
+      <p>
+        <b>Il prodotto è già stato creato?</b>
+        <input type="checkbox" (click)="changeForm()">
+      </p>
+      <div class="form" *ngIf="flag">
+        <form #myForm="ngForm">
+          <p>Prodotti in esposizione</p>
+          <select id="idProductExposed" name="idProductExposed" ngModel>
+            <option *ngFor="let prod of listaProdottiEsposti" value="{{prod.id}}">{{prod.name}}</option>
+          </select>
+          <p>Quantità</p>
+          <input type="number" name="quantity" ngModel>
+          <p>Materiale</p>
+          <select id="materiale" name="material" ngModel>
+            <option *ngFor="let prod of prodotti" value="{{prod.id}}">{{prod.name}}</option>
+          </select>
+          <p>Quantità Materiale da Usare</p>
+          <input type="number" name="quantityMaterial" ngModel>
+          <br>
+          <br>
+          <input type="submit" (click)="getValueForm(myForm.value)">
+        </form>
+        <br>
+      </div>
+
+
+      <div class="form" *ngIf="!flag">
+        <form #myOtherForm="ngForm">
+          <p>Nome</p>
+          <input type="text" name="name" ngModel placeholder="Esempio: Anello, Collana, Bracciale ...">
+          <p>Prezzo</p>
+          <input type="number" name="price" ngModel>
+          <p>Codice a barre</p>
+          <input type="number" name="barcode" ngModel>
+          <p>Quantità</p>
+          <input type="number" name="quantity" ngModel>
+          <p>Materiale</p>
+          <select id="materiale" name="material" ngModel>
+            <option *ngFor="let prod of prodotti" value="{{prod.id}}">{{prod.name}}</option>
+          </select>
+          <p>Quantità Materiale da Usare</p>
+          <input type="number" name="quantityMaterial" ngModel>
+          <br>
+          <br>
+          <input type="submit" (click)="getValueOtherForm(myOtherForm.value)">
+        </form>
+        <br>
+      </div>
+
+    </div>
+  </div>
+
+</body>

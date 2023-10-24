@@ -1,3 +1,49 @@
 <body>
     <app-search></app-search>
-</body>>
+
+    <div class="lista">
+        <div class="testo">
+            <h3>LISTA DEI PRODOTTI VENDUTI:</h3>
+            <table>
+                <tr>
+                    <th>Numero</th>
+                    <th>Nome</th>
+                    <th>Codice a Barre</th>
+                    <th>Prezzo</th>
+                    <th>Quantità</th>
+                </tr>
+                <tr class="puntatore" *ngFor="let p of lista">
+                    <th>{{p.id}}</th>
+                    <th>{{p.name}}</th>
+                    <th>{{p.barCode}}</th>
+                    <th>{{p.price}}</th>
+                    <th>{{p.quantity}}</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <hr style="width: 80%; align-items: center;">
+
+    <!-- form per aggiungere un prodotto-->
+    <div class="riquadro">
+        <div class="testo">
+            <h1>Aggiungi un prodotto venduto</h1>
+            <div class="form">
+                <form #myForm="ngForm">
+                    <p>Prodotti in esposizione</p>
+                    <select id="idProductExposed" name="idProductExposed" ngModel>
+                        <option *ngFor="let prod of listaProdottiEsposti" value="{{prod.id}}">{{prod.name}}</option>
+                    </select>
+                    <p>Quantità</p>
+                    <input type="number" name="quantity" ngModel>
+                    <br>
+                    <br>
+                    <input type="submit" (click)="addProdotti(myForm.value)">
+                </form>
+                <br>
+            </div>
+        </div>
+    </div>
+
+</body>
