@@ -4,6 +4,7 @@ import {Staff} from '../file ts/staff';
 import {identifierName} from '@angular/compiler';
 import {Password} from "../file ts/password";
 import { AuthService } from 'src/Services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-personale',
@@ -14,7 +15,7 @@ export class PersonaleComponent implements OnInit {
 
   loggedUser: number=0;
 
-  constructor(private staffServ: PersonaleService, private authServ: AuthService) {
+  constructor(private staffServ: PersonaleService, private authServ: AuthService, private router: Router ) {
     this.loggedUser= this.authServ.getRole();
   }
 
@@ -63,5 +64,8 @@ export class PersonaleComponent implements OnInit {
     location.reload();
   }
 
+  cercaPersonale(s: any){
+    this.router.navigate(['/staff_info',s.id]);
+  }
 
 }

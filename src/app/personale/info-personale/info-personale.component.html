@@ -1,0 +1,62 @@
+<body>
+    <div>
+        <app-search></app-search>
+    </div>
+
+    <div class="lista">
+        <h3>LISTA DELLE INFO DI </h3>
+        <h4>{{utente.firstName}} {{utente.lastName}} - Email: {{utente.email}}</h4>
+        <div class="testo">
+            <table>
+                <tr>
+                    <th>Ore Lavorate</th>
+                    <th>Straordinari</th>
+                    <th>ferie</th>
+                    <th>Mese</th>
+                    <th>Anno</th>
+                </tr>
+                <tr class="puntatore" *ngFor="let s of salario">
+                    <th>{{s.oreLavorate}}</th>
+                    <th>{{s.straordinari}}</th>
+                    <th>{{s.ferie}}</th>
+                    <th>{{s.month}}</th>
+                    <th>{{s.year}}</th>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <hr style="width: 80%; align-items: center;">
+    <br>
+
+    <!-- form per aggiungere una persona-->
+    <div class="riquadro">
+        <div class="testo">
+            <h1>Modifica le ore</h1>
+            <div class="form">
+                <form #myForm="ngForm">
+                    <p>Mese</p>
+                    <select id="mese" name="mese" ngModel>
+                        <option *ngFor="let s of salario">{{s.month}}</option>
+                    </select>
+                    <br>
+                    <p>Anno</p>
+                    <input type="number" name="anno" ngModel>
+                    <br>
+                    <p>Ore Lavorate</p>
+                    <input type="number" name="oreLavorate" ngModel>
+                    <br>
+                    <p>Straordinari</p>
+                    <input type="number" name="straordinari" ngModel>
+                    <br>
+                    <p>Ferie</p>
+                    <input type="number" name="ferie" ngModel>
+                    <br><br>
+                    <input type="submit" (click)="getValueForm(myForm.value)">
+                </form>
+                <br>
+            </div>
+        </div>
+    </div>
+</body>

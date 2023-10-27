@@ -14,6 +14,7 @@ import { ConfezioniMagazzinoComponent } from './confezioni-magazzino/confezioni-
 import { ProdottiDaLavorareComponent } from './SezioneProdotti/prodotti-da-lavorare/prodotti-da-lavorare.component';
 import { ProdottiVendutiComponent } from './SezioneProdotti/prodotti-venduti/prodotti-venduti.component';
 import { ProdottiInEsposizioneComponent } from './SezioneProdotti/prodotti-in-esposizione/prodotti-in-esposizione.component';
+import { InfoPersonaleComponent } from './personale/info-personale/info-personale.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'warehouse/boxs', component: ConfezioniMagazzinoComponent},
   {path: 'cart', component: CarrelloComponent},
   {path: 'staff', component: PersonaleComponent},
+  {path: 'staff_info/:ricerca', component: InfoPersonaleComponent},
   {path: 'orders', component: SpedizioniComponent},
   {path: 'products_of_supplier/:ricerca', component: ProdottiFornitoreComponent},
   {path: '', redirectTo:"/login", pathMatch: "full"}

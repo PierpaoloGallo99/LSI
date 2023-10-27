@@ -1,1 +1,62 @@
-<app-search></app-search>
+<body>
+    <app-search></app-search>
+
+    <div class="lista">
+        <h3>LISTA CLIENTI CON PRODOTTI DIFETTOSI </h3>
+        <h4> </h4>
+        <div class="testo">
+            <table>
+                <tr>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Telefono</th>
+                    <th>Prodotto</th>
+                    <th>Prezzo</th>
+                    <th>Problema</th>
+                </tr>
+                <tr *ngFor="let p of listaProblemiClienti">
+                    <th>{{p.nomeCliente}}</th>
+                    <th>{{p.cognomeCliente}}</th>
+                    <th>{{p.telefonoCliente}}</th>
+                    <th>{{p.nameProductSold}}</th>
+                    <th>{{p.price}}</th>
+                    <th>{{p.problem}}</th>
+                    <button type="submit" (click)="removeClient(p)">Rimuovi</button>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <hr style="width: 80%; align-items: center;">
+    <br>
+
+    <div class="riquadro">
+        <div class="testo">
+            <h1>Aggiungi Cliente con prodotti difettosi</h1>
+            <div class="form">
+                <form #myForm="ngForm">
+                    <p>Nome</p>
+                    <input type="text" name="nome" ngModel>
+                    <br>
+                    <p>Cognome</p>
+                    <input type="text" name="cognome" ngModel>
+                    <br>
+                    <p>Telefono</p>
+                    <input type="tel" name="telefono" ngModel>
+                    <br>
+                    <p>Prodotti</p>
+                    <select id="prodotto" name="prodotto" ngModel>
+                        <option *ngFor="let p of lista" value="{{p.id}}">{{p.name}}</option>
+                    </select>
+                    <br>
+                    <p>Problema</p>
+                    <input type="text" name="problema" ngModel>
+                    <br><br>
+                    <input type="submit" (click)="getValueForm(myForm.value)">
+                </form>
+                <br>
+            </div>
+        </div>
+    </div>
+</body>

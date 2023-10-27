@@ -20,6 +20,7 @@ import { ConfezioniMagazzinoComponent } from './confezioni-magazzino/confezioni-
 import { ProdottiDaLavorareComponent } from './SezioneProdotti/prodotti-da-lavorare/prodotti-da-lavorare.component';
 import { ProdottiVendutiComponent } from './SezioneProdotti/prodotti-venduti/prodotti-venduti.component';
 import { ProdottiInEsposizioneComponent } from './SezioneProdotti/prodotti-in-esposizione/prodotti-in-esposizione.component';
+import { InfoPersonaleComponent } from './personale/info-personale/info-personale.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { ProdottiInEsposizioneComponent } from './SezioneProdotti/prodotti-in-es
     ProdottiDaLavorareComponent,
     ProdottiVendutiComponent,
     ProdottiInEsposizioneComponent,
+    InfoPersonaleComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,7 +15,7 @@
         <th>Livello</th>
         <th>Rimuovi</th>
       </tr>
-      <tr class="puntatore" *ngFor="let s of lista">
+      <tr class="puntatore" *ngFor="let s of lista" (click)="cercaPersonale(s)">
         <th>{{s.id}}</th>
         <th>{{s.firstName}}</th>
         <th>{{s.lastName}}</th>
