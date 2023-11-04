@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit  {
       list[1]=formData.password;
       this.utente= this.loginService.login(list).subscribe((response) => {
         this.authService.utente=response;
-        console.log( this.authService.utente)
         this.authService.setAuthentication();
         this.router.navigate(["/home"]);
       },

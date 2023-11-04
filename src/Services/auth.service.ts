@@ -19,20 +19,22 @@ export class AuthService {
 
   setAuthentication(){
     this.isAuthenticated= !this.isAuthenticated;
-    localStorage.setItem('isAuthenticated', this.isAuthenticated.toString());
+    localStorage.setItem("user", JSON.stringify(this.utente));
   }
 
   getAuthentication(){
-    const isAuthenticated = localStorage.getItem('isAuthenticated');
+    const isAuthenticated = localStorage.getItem('user');
     if (isAuthenticated) {
-      return isAuthenticated === 'true';
+      const user: Staff=JSON.parse(isAuthenticated);
+      this.utente=user;
+      return user;
     } else {
-      return false;
+      return "";
     }
   }
 
   getRole(){
-    return Number(this.utente?.code);
+    return this.utente?.role;
   }
 
 }

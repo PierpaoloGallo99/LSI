@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SearchService } from '../../Services/search.service';
 import { Fornitore } from '../supplier/fornitori';
+import { CartService } from 'src/Services/cart.service';
 
 @Component({
   selector: 'app-prodotti-fornitore',
@@ -14,7 +15,7 @@ export class ProdottiFornitoreComponent implements OnInit {
   prodotti: any[]=[];
   fornitore: any;
 
-  constructor(private route: ActivatedRoute, private search: SearchService) { }
+  constructor(private route: ActivatedRoute, private search: SearchService, private cartSrv: CartService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -27,6 +28,21 @@ export class ProdottiFornitoreComponent implements OnInit {
       });
     });
 
+  }
+
+
+  addToCart(prodotto: any, fornitore: any){
+    console.log(prodotto, fornitore)
+    const list: any[]=[];
+
+    list[0]=fornitore.id;
+    list[1]=fornitore.name;
+    list[2]=prodotto.id;
+    list[3]=prodotto.name;
+    list[4]=prodotto.price;
+    list[5]=1;
+
+    this.cartSrv.addProductInCart(list).subscribe();
   }
 
 }

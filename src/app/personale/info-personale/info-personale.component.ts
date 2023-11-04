@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/Services/auth.service';
 import { PersonaleService } from 'src/Services/personale.service';
 import { SalaryService } from 'src/Services/salary.service';
 import { SalaryUser } from 'src/app/file ts/SalaryUser';
@@ -16,8 +17,11 @@ export class InfoPersonaleComponent implements OnInit {
   salario: SalaryUser[] = [];
 
 
+  loggedUser: any;
 
-  constructor(private route: ActivatedRoute, private staffSrv: PersonaleService, private salarySrv: SalaryService) { }
+  constructor(private route: ActivatedRoute, private staffSrv: PersonaleService, private salarySrv: SalaryService, private authServ: AuthService) {
+    this.loggedUser = this.authServ.utente;
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {

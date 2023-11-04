@@ -6,13 +6,11 @@
             <h3>LISTA DELLE CONFEZIONI IN MAGAZZINO:</h3>
             <table>
                 <tr>
-                    <th>Numero</th>
                     <th>Nome</th>
                     <th>Quantità</th>
                     <th>Dimensione</th>
                 </tr>
                 <tr class="puntatore" *ngFor="let b of box">
-                    <th>{{b.id}}</th>
                     <th>{{b.name}}</th>
                     <th>{{b.quantity}}</th>
                     <th *ngIf="b.dimension == 1">Piccola</th>

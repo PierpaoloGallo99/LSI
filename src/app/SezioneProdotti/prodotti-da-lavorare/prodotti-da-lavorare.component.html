@@ -32,7 +32,7 @@
   <hr style="width: 80%; align-items: center;">
 
   <!-- form per aggiungere un prodotto-->
-  <div class="riquadro">
+  <div class="riquadro" *ngIf="loggedUser.role==='Orefice'">
     <div class="testo">
       <h1>Aggiungi un prodotto da creare</h1>
       <p>

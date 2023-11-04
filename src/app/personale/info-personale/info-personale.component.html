@@ -4,7 +4,7 @@
     </div>
 
     <div class="lista">
-        <h3>LISTA DELLE INFO DI </h3>
+        <h3>INFO DI </h3>
         <h4>{{utente.firstName}} {{utente.lastName}} - Email: {{utente.email}}</h4>
         <div class="testo">
             <table>
@@ -31,14 +31,25 @@
     <br>
 
     <!-- form per aggiungere una persona-->
-    <div class="riquadro">
+    <div class="riquadro" *ngIf="loggedUser.role==='Titolare/Soci' || loggedUser.id==utente.id">
         <div class="testo">
             <h1>Modifica le ore</h1>
             <div class="form">
                 <form #myForm="ngForm">
                     <p>Mese</p>
                     <select id="mese" name="mese" ngModel>
-                        <option *ngFor="let s of salario">{{s.month}}</option>
+                        <option value="Gennaio">Gennaio</option>
+                        <option value="Febbraio">Febbraio</option>
+                        <option value="Marzo">Marzo</option>
+                        <option value="Aprile">Aprile</option>
+                        <option value="Maggio">Maggio</option>
+                        <option value="Giugno">Giugno</option>
+                        <option value="Luglio">Luglio</option>
+                        <option value="Agosto">Agosto</option>
+                        <option value="Settembre">Settembre</option>
+                        <option value="Ottobre">Ottobre</option>
+                        <option value="Novembre">Novembre</option>
+                        <option value="Dicembre">Dicembre</option>
                     </select>
                     <br>
                     <p>Anno</p>

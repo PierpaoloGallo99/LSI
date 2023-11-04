@@ -7,12 +7,10 @@
             <h3>LISTA DEI FORNITORI:</h3>
             <table>
                 <tr>
-                    <th>Numero</th>
                     <th>Nome</th>
                     <th>Telefono</th>
                 </tr>
                 <tr class="puntatore" *ngFor="let f of fornitori" (click)="cercaFornitore(f)" >
-                    <th>{{f.id}}</th>
                     <th>{{f.name}}</th>
                     <th>{{f.phone}}</th>
                 </tr>

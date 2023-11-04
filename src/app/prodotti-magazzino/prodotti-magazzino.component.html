@@ -7,14 +7,12 @@
             <h3>LISTA DEI PRODOTTI IN MAGAZZINO:</h3>
             <table>
                 <tr>
-                    <th>Numero</th>
                     <th>Nome</th>
                     <th>Codice a Barre</th>
                     <th>Descrizione</th>
                     <th>Quantità (grammi)</th>
                 </tr>
                 <tr class="puntatore" *ngFor="let p of prodotti">
-                    <th>{{p.id}}</th>
                     <th>{{p.name}}</th>
                     <th>{{p.barCode}}</th>
                     <th>{{p.description}}</th>

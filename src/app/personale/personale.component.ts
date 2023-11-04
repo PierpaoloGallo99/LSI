@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {PersonaleService} from '../../Services/personale.service';
-import {Staff} from '../file ts/staff';
-import {identifierName} from '@angular/compiler';
-import {Password} from "../file ts/password";
+import { Component, OnInit } from '@angular/core';
+import { PersonaleService } from '../../Services/personale.service';
+import { Staff } from '../file ts/staff';
+import { identifierName } from '@angular/compiler';
+import { Password } from "../file ts/password";
 import { AuthService } from 'src/Services/auth.service';
 import { Router } from '@angular/router';
 
@@ -13,10 +13,10 @@ import { Router } from '@angular/router';
 })
 export class PersonaleComponent implements OnInit {
 
-  loggedUser: number=0;
+  loggedUser: any;
 
-  constructor(private staffServ: PersonaleService, private authServ: AuthService, private router: Router ) {
-    this.loggedUser= this.authServ.getRole();
+  constructor(private staffServ: PersonaleService, private authServ: AuthService, private router: Router) {
+    this.loggedUser = this.authServ.utente;
   }
 
   password = new Password();
@@ -53,6 +53,7 @@ export class PersonaleComponent implements OnInit {
     list[4] = formData.id;
     list[5] = "00";
     list[6] = formData.password;
+    list[7] = formData.ruolo;
     this.staffServ.registerUser(list).subscribe((response) => {
       location.reload();
     });
@@ -64,8 +65,8 @@ export class PersonaleComponent implements OnInit {
     location.reload();
   }
 
-  cercaPersonale(s: any){
-    this.router.navigate(['/staff_info',s.id]);
+  cercaPersonale(s: any) {
+    this.router.navigate(['/staff_info', s.id]);
   }
 
 }

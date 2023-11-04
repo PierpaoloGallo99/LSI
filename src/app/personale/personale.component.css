@@ -89,6 +89,23 @@ input[type="submit"]:hover {
     color: white;
 }
 
+.info{
+    width: 100%;
+    background-color:teal;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.info:hover{
+    background-color:rgb(7, 164, 208);
+    color: white;
+}
+
+
 .puntatore:hover{
     cursor: pointer;
 }

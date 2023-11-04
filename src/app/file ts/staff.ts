@@ -6,5 +6,6 @@ export class Staff{
     telephoneNumber?: string;
     email?: string;
     idSalary?: number;
+    role?: String;
     constructor(){}
 }

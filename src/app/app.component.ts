@@ -11,9 +11,9 @@ export class AppComponent {
   title = 'Sistema Informativo Gioielleria';
 
   constructor(private router: Router, private authService: AuthService) {
-    // 
-    if(!authService.getAuthentication() || authService.getAuthentication()==undefined)
+    if( this.authService.getAuthentication()===""){
       this.router.navigate(["/login"])
+    }
 
   }
 

@@ -9,20 +9,22 @@
         <div class="testo">
             <table>
                 <tr>
-                    <th>Numero</th>
                     <th>Nome</th>
                     <th>Codice a Barre</th>
                     <th>Descrizione</th>
                     <th>Prezzo</th>
-                    <th>Quantità</th>
+                    <th></th>
                 </tr>
                 <tr class="puntatore" *ngFor="let p of prodotti">
-                    <th>{{p.id}}</th>
                     <th>{{p.name}}</th>
                     <th>{{p.barCode}}</th>
                     <th>{{p.description}}</th>
                     <th>{{p.price}} €</th>
-                    <th>{{p.quantity}}</th>
+                    <th>
+                        <button (click)="addToCart(p, fornitore)">
+                            AGGIUNGI PRODOTTO
+                        </button>
+                    </th>
                 </tr>
 
             </table>

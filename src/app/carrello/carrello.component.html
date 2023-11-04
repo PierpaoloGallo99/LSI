@@ -1,1 +1,38 @@
-<app-search></app-search>
+<body>
+    <app-search></app-search>
+
+    <div class="lista">
+        <h3>LISTA DEI PRODOTTI NEL CARRELLO </h3>
+        <div class="testo">
+            <table>
+                <tr>
+                    <th>Nome Fornitore</th>
+                    <th>Nome Prodotto</th>
+                    <th>Quantità (grammi)</th>
+                    <th>Prezzo</th>
+                </tr>
+                <tr class="puntatore" *ngFor="let p of prodotti">
+                    <th>{{p.nomeFornitore}}</th>
+                    <th>{{p.nomeProdotto}}</th>
+                    <th>{{p.quantity}}</th>
+                    <th>{{p.price}} €</th>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <hr style="width: 80%; align-items: center;">
+
+    <!-- form per aggiungere una persona-->
+    <div class="riquadro" *ngIf="loggedUser.role==='Titolare/Soci' && flag">
+        <div class="testo">
+            <h1>Approva Ordine</h1>
+            <br>
+            <div class="form">
+                <button (click)="approvaOrdine()">Conferma</button>
+            </div>
+        </div>
+    </div>
+
+</body>

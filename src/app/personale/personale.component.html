@@ -1,86 +1,88 @@
 <body>
-<app-search></app-search>
+  <app-search></app-search>
 
-<div class="lista">
-  <div class="testo">
-    <h3>LISTA DELLE CONFEZIONI IN MAGAZZINO:</h3>
-    <table>
-      <tr>
-        <th>Numero</th>
-        <th>Nome</th>
-        <th>Cognome</th>
-        <th>Telefono</th>
-        <th>Email</th>
-        <th>Contratto</th>
-        <th>Livello</th>
-        <th>Rimuovi</th>
-      </tr>
-      <tr class="puntatore" *ngFor="let s of lista" (click)="cercaPersonale(s)">
-        <th>{{s.id}}</th>
-        <th>{{s.firstName}}</th>
-        <th>{{s.lastName}}</th>
-        <th>{{s.telephoneNumber}}</th>
-        <th>{{s.email}}</th>
-        <th *ngIf="s.idSalary==1">Tempo Indeterminato</th>
-        <th *ngIf="s.idSalary==2">Tempo Indeterminato</th>
-        <th *ngIf="s.idSalary==3">Tempo Indeterminato</th>
-        <th *ngIf="s.idSalary==4">Tempo Determinato</th>
-        <th *ngIf="s.idSalary==5">Tempo Determinato</th>
-        <th *ngIf="s.idSalary==6">Formazione al lavoro</th>
-        <th *ngIf="s.idSalary==7">Apprendistato professionalizzante</th>
-        <th>{{s.idSalary}}</th>
-        <th>
-          <button class="del" (click)="deleteUser(s)">ELIMINA</button>
-        </th>
-      </tr>
+  <div class="lista">
+    <div class="testo">
+      <h3>LISTA DELLE CONFEZIONI IN MAGAZZINO:</h3>
+      <table>
+        <tr>
+          <th>Nome</th>
+          <th>Cognome</th>
+          <th>Telefono</th>
+          <th>Email</th>
+          <th>Contratto</th>
+          <th></th>
+        </tr>
+        <tr *ngFor="let s of lista" >
+          <th>{{s.firstName}}</th>
+          <th>{{s.lastName}}</th>
+          <th>{{s.telephoneNumber}}</th>
+          <th>{{s.email}}</th>
+          <th *ngIf="s.idSalary==1">Tempo Indeterminato</th>
+          <th *ngIf="s.idSalary==2">Tempo Indeterminato</th>
+          <th *ngIf="s.idSalary==3">Tempo Indeterminato</th>
+          <th *ngIf="s.idSalary==4">Tempo Determinato</th>
+          <th *ngIf="s.idSalary==5">Tempo Determinato</th>
+          <th *ngIf="s.idSalary==6">Formazione al lavoro</th>
+          <th *ngIf="s.idSalary==7">Apprendistato professionalizzante</th>
+          <th *ngIf="loggedUser.role==='Titolare/Soci' || s.id==loggedUser.id">
+            <button class="info" (click)="cercaPersonale(s)">INFORMAZIONI</button>
+          </th>
+          <th *ngIf="loggedUser.role==='Titolare/Soci'">
+            <button class="del" (click)="deleteUser(s)">ELIMINA</button>
+          </th>
+        </tr>
 
-    </table>
-  </div>
-</div>
-
-<br>
-<br>
-<br>
-<hr style="width: 80%; align-items: center;">
-<br>
-
-<!-- form per aggiungere una persona-->
-<div class="riquadro" *ngIf="loggedUser==01">
-  <div class="testo">
-    <h1>Aggiungi un addetto</h1>
-    <div class="form">
-      <form #myForm="ngForm">
-        <p>Nome</p>
-        <input type="text" name="nome" ngModel>
-        <br>
-        <p>Cognome</p>
-        <input type="text" name="cognome" ngModel>
-        <br>
-        <p>Telefono</p>
-        <input type="tel" name="telefono" ngModel>
-        <br>
-        <p>Email</p>
-        <input type="email" name="email" ngModel>
-        <br>
-        <p>Password</p>
-        <input type="text" name="password" ngModel>
-        <br>
-        <p>Tipo di Contratto</p>
-        <select id="id" name="id" ngModel>
-          <option value="1">Contratto Indeterminato, Livello 1</option>
-          <option value="2">Contratto Indeterminato, Livello 2</option>
-          <option value="3">Contratto Indeterminato, Livello 3</option>
-          <option value="4">Contratto Determinato, Livello 4</option>
-          <option value="5">Contratto Determinato, Livello 5</option>
-          <option value="6">Contratto di formazione al lavoro, Livello 6</option>
-          <option value="7">Contratto di apprendistato formalizzante, Livello 7</option>
-        </select><br><br>
-        <input type="submit" (click)="getValueForm(myForm.value)">
-      </form>
-      <br>
+      </table>
     </div>
   </div>
-</div>
+
+  <br>
+  <br>
+  <br>
+  <hr style="width: 80%; align-items: center;">
+  <br>
+
+  <!-- form per aggiungere una persona-->
+  <div class="riquadro" *ngIf="loggedUser.role==='Titolare/Soci'">
+    <div class="testo">
+      <h1>Aggiungi un addetto</h1>
+      <div class="form">
+        <form #myForm="ngForm">
+          <p>Nome</p>
+          <input type="text" name="nome" ngModel>
+          <br>
+          <p>Cognome</p>
+          <input type="text" name="cognome" ngModel>
+          <br>
+          <p>Telefono</p>
+          <input type="tel" name="telefono" ngModel>
+          <br>
+          <p>Email</p>
+          <input type="email" name="email" ngModel>
+          <br>
+          <p>Password</p>
+          <input type="text" name="password" ngModel>
+          <br>
+          <p>Ruolo</p>
+          <input type="text" name="ruolo" ngModel>
+          <br>
+          <p>Tipo di Contratto</p>
+          <select id="id" name="id" ngModel>
+            <option value="1">Contratto Indeterminato, Livello 1</option>
+            <option value="2">Contratto Indeterminato, Livello 2</option>
+            <option value="3">Contratto Indeterminato, Livello 3</option>
+            <option value="4">Contratto Determinato, Livello 4</option>
+            <option value="5">Contratto Determinato, Livello 5</option>
+            <option value="6">Contratto di formazione al lavoro, Livello 6</option>
+            <option value="7">Contratto di apprendistato formalizzante, Livello 7</option>
+          </select><br><br>
+          <input type="submit" (click)="getValueForm(myForm.value)">
+        </form>
+        <br>
+      </div>
+    </div>
+  </div>
 
 
 </body>
