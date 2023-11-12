@@ -22,4 +22,8 @@ export class ProdottiMagazzinoService {
     return this.http.get<BoxMagazzino[]>(this.boxURL);
   }
 
+  addQuantityBoxMagazzino(list:any){
+    return this.http.post(this.boxURL+"/add-quantity", list);
+  }
+
 }

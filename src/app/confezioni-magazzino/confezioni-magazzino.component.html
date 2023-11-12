@@ -13,12 +13,39 @@
                 <tr class="puntatore" *ngFor="let b of box">
                     <th>{{b.name}}</th>
                     <th>{{b.quantity}}</th>
-                    <th *ngIf="b.dimension == 1">Piccola</th>
-                    <th *ngIf="b.dimension == 2">Media</th>
-                    <th *ngIf="b.dimension == 3">Grande</th>
+                    <th>{{b.dimension}}</th>
+                    
                 </tr>
 
             </table>
         </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <hr style="width: 80%; align-items: center;">
+    <br>
+  
+    <!-- form per aggiungere una persona-->
+    <div class="riquadro" *ngIf="loggedUser.role==='Titolare/Soci'">
+      <div class="testo">
+        <h1>Modifica quantità confezioni</h1>
+        <div class="form">
+          <form #myForm="ngForm">
+            <p>Tipo di confezione</p>
+            <select id="id" name="id" ngModel>
+                <option *ngFor="let box of box" value="{{box.id}}">{{box.name}}, {{box.dimension}}</option>
+              </select>
+            <br>
+            <p>Quantità</p>
+            <input type="number" name="quantity" ngModel>
+            <br>
+            <br><br>
+            <input type="submit" (click)="getValueForm(myForm.value)">
+          </form>
+          <br>
+        </div>
+      </div>
     </div>
 </body>

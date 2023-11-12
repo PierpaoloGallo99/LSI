@@ -10,9 +10,12 @@ import { Staff } from '../file ts/staff';
 })
 export class HomeComponent implements OnInit {
 
+  loggedUser: any;
+
   constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
+    this.loggedUser=this.auth.getAuthentication();
     console.log(this.auth.utente)
   }
 

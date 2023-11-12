@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BoxMagazzino } from '../file ts/box-magazzino';
 import { ProdottiMagazzinoService } from '../../Services/prodotti-magazzino.service';
+import { AuthService } from 'src/Services/auth.service';
 
 @Component({
   selector: 'app-confezioni-magazzino',
@@ -9,19 +10,31 @@ import { ProdottiMagazzinoService } from '../../Services/prodotti-magazzino.serv
 })
 export class ConfezioniMagazzinoComponent implements OnInit {
 
-  constructor(private warehouseService: ProdottiMagazzinoService) { }
+  loggedUser: any;
+  constructor(private warehouseService: ProdottiMagazzinoService, private auth: AuthService) {
+    this.loggedUser = this.auth.getAuthentication();
+  }
 
-  box: BoxMagazzino[]=[];
 
+  box: BoxMagazzino[] = [];
 
   ngOnInit(): void {
     this.getBoxMagazzino();
   }
 
-  getBoxMagazzino(){
+  getBoxMagazzino() {
     this.warehouseService.getBoxMagazzino().subscribe((data => {
-      this.box=data;
+      this.box = data;
     }));
+  }
+
+  getValueForm(formData: any) {
+    const list: any[] = [];
+    list[0]=formData.id;
+    list[1]=formData.quantity;
+
+    this.warehouseService.addQuantityBoxMagazzino(list).subscribe();
+    location.reload();
   }
 
 }

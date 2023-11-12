@@ -3,5 +3,5 @@ export interface BoxMagazzino{
     idBox: number;
     name: String;
     quantity: number;
-    dimension: number;
+    dimension: string;
 }

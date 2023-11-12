@@ -12,6 +12,7 @@ import {AuthService} from "../../Services/auth.service";
 export class SearchComponent implements OnInit {
   ricerca: any;
 
+  loggedUser:any;
   prodotti: Prodotto[] = [];
   fornitori: any[] = [];
 
@@ -22,6 +23,7 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loggedUser=this.authService.getAuthentication();
   }
 
   onSearch() {
